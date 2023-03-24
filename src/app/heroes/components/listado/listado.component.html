@@ -1,0 +1,14 @@
+<p>listado de héroes</p>
+<ul>
+  <li *ngFor="let heroe of heroes">{{ heroe }}</li>
+</ul>
+<dl *ngIf="heroeEliminado; else msgInicial">
+  <dt>Heroe eliminado</dt>
+  <dd>{{ heroeEliminado }}</dd>
+</dl>
+
+<ng-template #msgInicial>
+  <h4>Aún no elimina heroes</h4>
+</ng-template>
+
+<button (click)="eliminarHeroe()" *ngIf="sizeLstHeroes">Borrar</button>
