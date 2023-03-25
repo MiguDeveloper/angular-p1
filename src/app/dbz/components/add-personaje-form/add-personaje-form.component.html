@@ -1,0 +1,31 @@
+<h3>Agregar</h3>
+<hr />
+<form [formGroup]="agregarForm">
+  <div class="mb-3">
+    <label for="nombre" class="form-label">Nombre</label>
+    <input
+      formControlName="nombre"
+      type="text"
+      class="form-control"
+      id="nombre"
+      placeholder="e.g.: miguel"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="poder" class="form-label">poder</label>
+    <input
+      formControlName="poder"
+      type="text"
+      class="form-control"
+      id="nombre"
+      placeholder="e.g.: volar"
+    />
+  </div>
+  <div class="d-grid gap-2">
+    <button (click)="submitPersonaje()" class="btn btn-primary" type="button">
+      Agregar
+    </button>
+  </div>
+</form>
+<pre>{{ agregarForm.status }}</pre>
+<pre>{{ agregarForm.value | json }}</pre>

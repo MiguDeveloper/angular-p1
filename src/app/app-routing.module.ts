@@ -12,6 +12,10 @@ const routes: Routes = [
     loadChildren: () =>
       import('./heroes/heroes.module').then((m) => m.HeroesModule),
   },
+  {
+    path: 'dbz',
+    loadChildren: () => import('./dbz/dbz.module').then((m) => m.DbzModule),
+  },
 ];
 
 @NgModule({
