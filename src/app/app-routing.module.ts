@@ -1,3 +1,4 @@
+import { MainGifComponent } from './gifs/main-gif.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -15,6 +16,11 @@ const routes: Routes = [
   {
     path: 'dbz',
     loadChildren: () => import('./dbz/dbz.module').then((m) => m.DbzModule),
+  },
+  {
+    path: 'gifs',
+    component: MainGifComponent,
+    loadChildren: () => import('./gifs/gifs.module').then((m) => m.GifsModule),
   },
 ];
 
