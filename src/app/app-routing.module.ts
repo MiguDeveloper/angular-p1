@@ -1,3 +1,4 @@
+import { MainPaisesComponent } from './paises/main-paises.component';
 import { MainGifComponent } from './gifs/main-gif.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -21,6 +22,12 @@ const routes: Routes = [
     path: 'gifs',
     component: MainGifComponent,
     loadChildren: () => import('./gifs/gifs.module').then((m) => m.GifsModule),
+  },
+  {
+    path: 'paises',
+    component: MainPaisesComponent,
+    loadChildren: () =>
+      import('./paises/paises.module').then((m) => m.PaisesModule),
   },
 ];
 

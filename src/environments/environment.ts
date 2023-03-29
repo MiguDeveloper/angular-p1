@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   apiGiphy: 'https://api.giphy.com/v1/gifs/search',
+  restCountries: 'https://restcountries.com/v3.1',
 };
 
 /*

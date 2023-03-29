@@ -1,0 +1,8 @@
+<form [formGroup]="searchForm" (ngSubmit)="buscar()" autocomplete="off">
+  <input
+    formControlName="termino"
+    type="text"
+    class="form-control"
+    [placeholder]="placeholder"
+  />
+</form>
