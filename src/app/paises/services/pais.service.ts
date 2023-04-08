@@ -26,4 +26,10 @@ export class PaisService {
     const apiForAlpha = `${this.api}/alpha/${alpha}`;
     return this.http.get<CountriesResp[]>(apiForAlpha);
   }
+
+  getPaisesByRegion(region: string): Observable<CountriesResp[]> {
+    const apiForRegion = `${this.api}/region/${region}`;
+    const params = { fields: 'name,capital,cca2,flags,population' };
+    return this.http.get<CountriesResp[]>(apiForRegion, { params });
+  }
 }

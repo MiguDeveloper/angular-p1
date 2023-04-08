@@ -13,12 +13,15 @@ export class PorPaisComponent implements OnInit {
   is404: boolean = false;
   paises: CountriesResp[] = [];
   termino: string = '';
+  paisesSugeridos: CountriesResp[] = [];
+  mostarSugerencias: boolean = false;
 
   constructor(private paisService: PaisService) {}
 
   ngOnInit(): void {}
 
   buscar(termino: string) {
+    this.mostarSugerencias = false;
     this.is404 = false;
     this.termino = termino;
     this.paisService.buscarPais(termino).subscribe(
@@ -36,5 +39,13 @@ export class PorPaisComponent implements OnInit {
 
   sugerencias(termino: string) {
     this.is404 = false;
+    this.termino = termino;
+    this.mostarSugerencias = true;
+    this.paisService.buscarPais(termino).subscribe(
+      (paises) => {
+        this.paisesSugeridos = paises.splice(0, 5);
+      },
+      (error) => (this.paisesSugeridos = [])
+    );
   }
 }

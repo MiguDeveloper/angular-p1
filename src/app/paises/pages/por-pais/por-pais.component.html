@@ -1,23 +1,41 @@
-<h2>Por País</h2>
-<hr />
+<div class="animate__animated animate__fadeIn">
+  <h2>Por País</h2>
+  <hr />
 
-<div class="row">
-  <div class="col">
-    <app-search
-      [placeholder]="'Buscar país...'"
-      (termino)="buscar($event)"
-      (onSugerencia)="sugerencias($event)"
-    ></app-search>
+  <div class="row">
+    <div class="col">
+      <app-search
+        [placeholder]="'Buscar país...'"
+        (termino)="buscar($event)"
+        (onSugerencia)="sugerencias($event)"
+      ></app-search>
+    </div>
   </div>
-</div>
+  <ul *ngIf="mostarSugerencias" class="list-group">
+    <li
+      *ngFor="let pais of paisesSugeridos"
+      class="list-group-item list-group-item-action"
+    >
+      <a [routerLink]="['../ver-pais', pais.cca2]">
+        {{ pais.name.official }}
+      </a>
+    </li>
+    <li
+      (click)="buscar(termino)"
+      class="list-group-item list-group-item-action"
+    >
+      <a class="nav-link"> buscar: {{ termino }} </a>
+    </li>
+  </ul>
 
-<hr />
-<div *ngIf="is404" class="alert alert-danger">
-  No se encontro nada con el termino: {{ termino }}
-</div>
+  <hr />
+  <div *ngIf="is404" class="alert alert-danger">
+    No se encontro nada con el termino: {{ termino }}
+  </div>
 
-<div *ngIf="!is404 && paises.length" class="row">
-  <div class="col">
-    <app-pais-tabla [paises]="paises"></app-pais-tabla>
+  <div *ngIf="!is404 && paises.length" class="row">
+    <div class="col">
+      <app-pais-tabla [paises]="paises"></app-pais-tabla>
+    </div>
   </div>
 </div>
